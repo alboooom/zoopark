@@ -56,7 +56,7 @@ class Сonnection(models.Model):
     date_joined = models.DateField(auto_now_add=True)
 
     def __str__(self):
-        return self.name
+        return '-'.join((str(self.animal), str(self.worker)))
 
 
 
