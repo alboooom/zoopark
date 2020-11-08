@@ -7,9 +7,9 @@ from .filters import KPfilter
 
 
 class AnimalViewSet(viewsets.ModelViewSet):
-    queryset = Animal.objects.all()
+    queryset = Animal.objects.all().order_by('id')
     filter_class = KPfilter
-    filter_fields = ('kind',)
+    filter_fields = ('name',)
     serializer_class = AnimalSerializer
 
     def get_serializer_class(self):
