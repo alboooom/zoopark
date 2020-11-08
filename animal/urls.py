@@ -1,8 +1,15 @@
-from django.urls import path
-from . import views
+from django.conf.urls import url
+from django.urls import include
+from rest_framework.routers import DefaultRouter
+from .views import AnimalViewSet, PlacelViewSet, WorkerViewSet, KindViewSet, ConnectionViewSet
+router = DefaultRouter()
+router.register(r'place', PlacelViewSet)
+router.register(r'animals', AnimalViewSet)
+router.register(r'worker', WorkerViewSet)
+router.register(r'kind', KindViewSet)
+router.register(r'connection', ConnectionViewSet)
 
-# urlpatterns = [
-#     path('products/', views.products, name='product'),
-#     path('contact/', views.contact, name='contact'),
-#     path('', views.main, name='main')
-# ]
+urlpatterns = [
+    url(r'', include(router.urls)),
+
+]
